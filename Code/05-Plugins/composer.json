@@ -1,0 +1,28 @@
+{
+    "name": "wordplas/class-autoloading-test",
+    "description": "Test of Class Autoloading",
+    "authors": [
+        {
+            "name": "Ryan Plas",
+            "email": "ryan@wordplas.com"
+        }
+    ],
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.2.0",
+        "wpackagist-plugin/contact-form-7": "dev-trunk",
+        "wpackagist-theme/twentyseventeen": "^1.2"
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}

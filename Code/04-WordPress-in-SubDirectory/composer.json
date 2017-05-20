@@ -1,0 +1,17 @@
+{
+    "name": "wordplas/class-autoloading-test",
+    "description": "Test of Class Autoloading",
+    "authors": [
+        {
+            "name": "Ryan Plas",
+            "email": "ryan@wordplas.com"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^4.7",
+        "composer/installers": "~1.2.0"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp"
+    }
+}

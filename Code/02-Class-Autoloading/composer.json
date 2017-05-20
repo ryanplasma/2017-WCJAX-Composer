@@ -1,0 +1,16 @@
+{
+    "name": "wordplas/class-autoloading-test",
+    "description": "Test of Class Autoloading",
+    "authors": [
+        {
+            "name": "Ryan Plas",
+            "email": "ryan@wordplas.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CoolCalendar\\": "src/"
+        }
+    }
+}

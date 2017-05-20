@@ -1,11 +1,12 @@
 ![fit](https://getcomposer.org/img/logo-composer-transparent.png)
-# [fit] Dependency Management
-# [fit] in WordPress with
-# [fit] Composer
+# [fit]Dependency 
+# [fit]Management
+# [fit]in WordPress
+# [fit]with Composer
 
 ---
 
-# Ryan Plas
+# [fit]Ryan Plas
 ## __Back-end Developer @ CrowdFavorite__
 ## @WordPlas
 
@@ -43,6 +44,38 @@ Other Package/Dependency Managers
 
 ---
 
+# Composer Basics
+
+**init**
+
+Initialize a composer.json file with prompts.
+
+---
+
+# Composer Basics
+
+**update**
+
+Get the latest versions of dependencies and update the composer.lock file.
+
+---
+
+# Composer Basics
+
+**install**
+
+Reads the composer.json file from the current directory, resolves the dependencies, and installs them into vendor.
+
+---
+
+# Composer Basics
+
+**require**
+
+Adds new packages to the composer.json file from the current directory and installs them.
+
+---
+
 ![fit](https://getcomposer.org/img/logo-composer-transparent.png)
 # [fit]Why Should 
 # [fit]You Use Composer?
@@ -70,7 +103,7 @@ Composer is useful for:
 
 ### [https://getcomposer.org/download/](https://getcomposer.org/download/) (Local):
 
-![fit inline](https://s3.amazonaws.com/ryanplas/WCJAX2017/getcomposerdownload.png)
+![fit inline](https://s3.amazonaws.com/ryanplas/WCJAX2017/getcomposerdownload2.png)
 
 ---
 
@@ -106,18 +139,17 @@ Use Global:
 
 # How can you get started with Composer?
 
-* Package Name: vendor/name (ryanplasma/cool-library)
+* Package Name: vendor/name (wordplas/cool-library)
 * Description: What does your package do?
-* Author: Who are you? (FirstName LastName <email@email.com>)
+* Author: Who are you? (FirstName LastName \<email@email.com>)
 * Minimum Stability: defaults to stable
-* License
 * Define Dependencies
 
 ---
 
-# SO EASY!!!
+# [fit]SO EASY!!!
 
-![](http://media.giphy.com/media/f31DK1KpGsyMU/giphy.gif)
+![](https://media.giphy.com/media/xT77XWum9yH7zNkFW0/giphy.gif)
 
 ---
 
@@ -222,6 +254,28 @@ $taxonomy->do_something();
 
 ---
 
+![fit](https://getcomposer.org/img/logo-composer-transparent.png)
+# [fit] DEMO 
+
+---
+
+# Class Autoloading
+
+## Pros
+
+* Only one require
+* Organized code
+
+---
+
+# Class Autoloading
+
+## Cons
+
+* PSR-4 directly contradicts WordPress Coding Standards
+
+---
+
 # Manage PHP Dependencies
 
 `php composer.phar require guzzlehttp/guzzle:~6.0`
@@ -246,6 +300,20 @@ use GuzzleHttp\Client;
 $client = new GuzzleHttp\Client(['base_uri' => 'https://foo.com/api/']);
 $response = $client->request('GET', 'test');
 ```
+
+---
+
+![fit](https://getcomposer.org/img/logo-composer-transparent.png)
+# [fit] DEMO 
+
+---
+
+# Manage PHP Dependencies
+
+* Cleaner repo
+* Easier to manage updates
+* Easier to keep everyone on the same version
+
 
 ---
 
@@ -286,12 +354,163 @@ $response = $client->request('GET', 'test');
 
 ---
 
+# Manage your WordPress Install
+
+## Manage Plugins as Dependencies
+
+```
+composer require wpackagist-plugin/contact-form-7
+```
+
+---
+
+# Manage your WordPress Install
+
+## Manage Plugins as Dependencies
+
+**Custom install directories**
+
+```json
+{
+    extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    }
+}
+```
+
+---
+
+![fit](https://getcomposer.org/img/logo-composer-transparent.png)
+# [fit] DEMO 
+
+---
+
+
+# Manage your WordPress Install
+
+Next Steps:
+
+* Set up wp-config and server config to recognize new folder structure
+* See: [Bedrock](https://github.com/roots/bedrock) by Roots for an example of a full setup.
+
+---
+
 ![fit](https://getcomposer.org/img/logo-composer-transparent.png)
 # [fit]What Are Some
 # [fit]Issues You Can
 # [fit]Run Into?
 
 ---
+
+# Issues
+
+**Version conflicts**
+
+* Plugin 1 requires FooSDK v1
+* Plugin 2 requires FooSDK v2
+* Plugin 1 is loaded first with FooSDK v1
+* Plugin 2 runs into problems
+
+---
+
+![](https://media.giphy.com/media/vItkAzRz4wTv2/giphy.gif?response_id=59205e840410ce655c7b15c8)
+
+# [fit]OH NO!!!
+# [fit]WHAT CAN WE DO???
+
+---
+
+# Options
+
+* Manually rename packages
+* Automatically rename packages
+
+---
+
+# Manually Rename Packages
+
+* Copy the class files into a folder
+* Add the folder to the autoloader section of composer.json
+
+![inline](https://s3.amazonaws.com/ryanplas/WCJAX2017/pimple.png)
+
+---
+
+# Automatically Rename Packages
+
+[https://github.com/coenjacobs/mozart](https://github.com/coenjacobs/mozart)
+
+---
+
+```json
+{
+    "require-dev": {
+        "coenjacobs/mozart": "^0.2.0"
+    },
+    "extra": {
+        "mozart": {
+            "dep_namespace": "WordPlas\\MozartTest\\Dependencies\\",
+            "dep_directory": "/src/Dependencies/",
+            "classmap_directory": "/classes/dependencies/",
+            "classmap_prefix": "WPMZ_",
+            "packages": [
+                "pimple/pimple"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "\"vendor/bin/mozart\" compose"
+        ],
+        "post-update-cmd": [
+            "\"vendor/bin/mozart\" compose"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "WordPlas\\MozartTest\\Dependencies\\": "src/Dependencies"
+        }
+    }
+}
+```
+
+---
+
+# Automatically Rename Packages
+
+```php
+<?php
+
+use WordPlas\MozartTest\Dependencies\Pimple\Container;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$container = new Container();
+
+var_dump($container);
+```
+
+---
+
+![fit](https://getcomposer.org/img/logo-composer-transparent.png)
+# [fit] DEMO 
+
+---
+
+# Issues
+
+**Version conflicts**
+
+[https://deliciousbrains.com/dependency-management-wordpress-proposal/](https://deliciousbrains.com/dependency-management-wordpress-proposal/)
+
+---
+
+![fit](https://getcomposer.org/img/logo-composer-transparent.png)
+# [fit]Questions?
 
 
 

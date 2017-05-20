@@ -1,0 +1,1 @@
+Run `composer require wpackagist-plugin/contact-form-7` then `composer update`

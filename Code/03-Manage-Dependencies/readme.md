@@ -1,0 +1,1 @@
+Run `php composer.phar update` then `php -f request.php`

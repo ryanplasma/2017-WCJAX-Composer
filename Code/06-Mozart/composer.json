@@ -1,0 +1,41 @@
+{
+    "name": "wordplas/mozart-test",
+    "description": "Test of Mozart",
+    "type": "wordpress-plugin",
+    "authors": [
+        {
+            "name": "Ryan Plas",
+            "email": "ryan@wordplas.com"
+        }
+    ],
+    "require": {
+        "pimple/pimple": "*"
+    },
+    "require-dev": {
+        "coenjacobs/mozart": "^0.2.0"
+    },
+    "extra": {
+        "mozart": {
+            "dep_namespace": "WordPlas\\MozartTest\\Dependencies\\",
+            "dep_directory": "/src/Dependencies/",
+            "classmap_directory": "/classes/dependencies/",
+            "classmap_prefix": "WPMZ_",
+            "packages": [
+                "pimple/pimple"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "\"vendor/bin/mozart\" compose"
+        ],
+        "post-update-cmd": [
+            "\"vendor/bin/mozart\" compose"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "WordPlas\\MozartTest\\Dependencies\\": "src/Dependencies"
+        }
+    }
+}
