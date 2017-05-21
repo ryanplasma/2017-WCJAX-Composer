@@ -8,7 +8,8 @@
 
 # [fit]Ryan Plas
 ## __Back-end Developer @ CrowdFavorite__
-## @WordPlas
+## [@WordPlas](http://twitter.com/wordplas)
+## [github.com/ryanplasma](http://github.com/ryanplasma)
 
 ---
 
@@ -496,7 +497,7 @@ var_dump($container);
 
 ---
 
-![fit](https://getcomposer.org/img/logo-composer-transparent.png)
+![fit](https://pbs.twimg.com/profile_images/582249466314428416/c9BsQhk2.jpg)
 # [fit] DEMO 
 
 ---

@@ -1,6 +1,6 @@
 {
-    "name": "wordplas/class-autoloading-test",
-    "description": "Test of Class Autoloading",
+    "name": "wordplas/wp-subdirectory-test",
+    "description": "Test of WP in a subdirectory",
     "authors": [
         {
             "name": "Ryan Plas",
