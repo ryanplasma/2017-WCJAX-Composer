@@ -510,8 +510,19 @@ var_dump($container);
 
 ---
 
+![](http://i.imgur.com/aiiU77e.gif)
+# [fit]You Are Now A
+# [fit]Composer Pro!
+
+---
+
 ![fit](https://getcomposer.org/img/logo-composer-transparent.png)
 # [fit]Questions?
+
+---
+
+# Slides and Code:
+[https://github.com/ryanplasma/2017-WCJAX-Composer](https://github.com/ryanplasma/2017-WCJAX-Composer)
 
 
 
